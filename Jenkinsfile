@@ -9,7 +9,7 @@ pipeline {
 	stages {
 		stage('Checkout') {
 			steps {
-				checkout scmGit(branches: name: '*/master', extensions: [], userRemoteConfigs: url: 'https://github.com/ashikha2023/python-calculator.git')
+				checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ashikha2023/python-calculator.git']]])
 			}
 		}
 		stage('Build run') {
